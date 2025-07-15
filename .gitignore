@@ -1,0 +1,46 @@
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+.env
+.env.*
+
+# SQLite / DB файлы
+*.db
+*.sqlite
+*.sqlite3
+
+# Alembic конфиг
+alembic.ini
+
+# SQLAlchemy — кеш‑файлы
+*.pickle
+
+# Логи и отладочные файлы
+*.log
+debug.log
+
+# Pytest, coverage
+.pytest_cache/
+htmlcov/
+.coverage
+
+# IDE / редакторы
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# MacOS
+.DS_Store
+
+# Docker
+*.pid
+*.sock
+
+# прочее
+*.bak
+*.swp
