@@ -27,8 +27,8 @@ async def create_category(db: Annotated[AsyncSession, Depends(get_db)], create_c
         )
 
     await db.execute(insert(Category).values(name=create_category.name,
-                                       parent_id=create_category.parent_id,
-                                       slug=slugify(create_category.name)))
+                                             parent_id=create_category.parent_id,
+                                             slug=slugify(create_category.name)))
 
     await db.commit()
 
