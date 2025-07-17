@@ -13,9 +13,6 @@ __pycache__/
 *.sqlite
 *.sqlite3
 
-# Alembic конфиг
-alembic.ini
-
 # SQLAlchemy — кеш‑файлы
 *.pickle
 
