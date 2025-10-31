@@ -3,7 +3,7 @@ FROM python:3.12.0
 # устанавливаем переменные окружения
 ENV HOME=/home/fast \
     APP_HOME=/home/fast/app \
-    PYTHONPATH="$PYTHONPATH:/home/fast" \
+    PYTHONPATH="/home/fast" \
     PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1
 
@@ -30,3 +30,5 @@ RUN pip install --upgrade pip \
 
 # изменение рабочего пользователя на fast
 USER fast
+
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
