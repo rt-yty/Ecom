@@ -30,33 +30,20 @@ alembic.ini
 ```
 
 ### Настройка и запуск
-1. Клонируйте репозиторий и создайте файл в корне. В нём должны быть переменные: `.env`
+Клонируйте репозиторий и создайте файл в корне. В нём должны быть переменные: `.env`
 ``` dotenv
     DATABASE_URL=postgresql+asyncpg://user:password@host:port/db_name
     SECRET_KEY=ваш_секретный_ключ
     ALGORITHM=HS256
 ```
-1. Установите зависимости:
-``` bash
-    python -m venv venv
-    source venv/bin/activate
-    pip install -r app/requirements.txt
-```
-1. Запустите миграции, чтобы создать таблицы в БД:
-``` bash
-    alembic upgrade head
-```
-1. Запустите сервер:
-``` bash
-    uvicorn app.main:app --reload
-```
-Сервис будет доступен на `http://localhost:8000`. Документация Swagger доступна по адресу `http://localhost:8000/docs`.
-#### (Опционально) Docker
+#### Docker
 Для локального запуска в контейнере соберите образ:
 ``` bash
-docker build -f app/Dockerfile -t ecom-dev .
-docker run -p 8000:8000 --env-file .env ecom-dev
+docker compose up -d --build
+docker compose ps
 ```
+Сервис будет доступен на `http://localhost:8000`. Документация Swagger доступна по адресу `http://localhost:8000/docs`.
+
 ### Как пользоваться API
 Все защищённые маршруты требуют передачи заголовка `Authorization: Bearer <token>`.
 #### Регистрация и авторизация (`/auth`)
